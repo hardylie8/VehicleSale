@@ -54,7 +54,7 @@ class CreateNewUser extends Command
     {
         $email = $this->getStringArgument('email', 'admin@admin.com');
         $password = $this->getStringArgument('password', 'password');
-        $newUser = User::firstOrCreate([
+        User::firstOrCreate([
             'name' => $this->argument('name'),
             'email' => $email,
             'password' => Hash::make($password),
