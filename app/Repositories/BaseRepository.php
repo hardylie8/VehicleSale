@@ -71,6 +71,7 @@ abstract class BaseRepository
      */
     public function delete($id)
     {
-        return $this->model->delete($id);
+        $model = $this->getById($id);
+        $model->delete();
     }
 }
