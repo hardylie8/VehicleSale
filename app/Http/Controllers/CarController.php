@@ -2,11 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CarSaveRequest;
+use App\Http\Resources\CarCollection;
+use App\Http\Resources\CarResource;
 use App\Models\Car;
-use Illuminate\Http\Request;
+use App\Services\CarService;
 
 class CarController extends Controller
 {
+    /**
+     * @var CarService
+     */
+    protected $carService;
+
+    /**
+     * CarController Constructor
+     *
+     * @param CarService $carService
+     *
+     */
+    public function __construct(CarService $carService)
+    {
+        $this->carService = $carService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +33,14 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        return (new CarCollection($this->carService->getAll()))
+            ->additional(
+                [
+                    'success' => 'success',
+                    'message' => 'Data Has been successfully retrieved',
+                ]
+            );
+
     }
 
     /**
@@ -33,9 +59,18 @@ class CarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CarSaveRequest $request)
     {
-        //
+
+        $result = $this->carService->saveCarData($request);
+
+        return (new CarResource($result))
+            ->additional(
+                [
+                    'status' => 201,
+                    'message' => 'Data Has been successfully  Created',
+                ]
+            );
     }
 
     /**
@@ -46,7 +81,13 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        return (new CarResource($this->carService->getById($car->getKey())))
+            ->additional(
+                [
+                    'success' => 'success',
+                    'message' => 'Data Has been successfully retrieved',
+                ]
+            );
     }
 
     /**
@@ -67,9 +108,17 @@ class CarController extends Controller
      * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Car $car)
+    public function update(CarSaveRequest $request, Car $car)
     {
-        //
+        $result = $this->carService->updateCar($request, $car->getKey());
+
+        return (new CarResource($result))
+            ->additional(
+                [
+                    'status' => 201,
+                    'message' => 'Data Has been successfully Updated',
+                ]
+            );
     }
 
     /**
@@ -80,6 +129,13 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        $result = $this->carService->deleteById($car->getKey());
+        return (new CarResource($result))
+            ->additional(
+                [
+                    'status' => 200,
+                    'message' => 'Data Has been successfully deleted',
+                ]
+            );
     }
 }

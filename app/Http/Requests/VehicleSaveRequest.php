@@ -23,24 +23,21 @@ class VehicleSaveRequest extends FormRequest
      */
     public function rules()
     {
-        $requestMethod = request()->isMethod('post');
-        $rule = $requestMethod ? 'required' : 'sometimes';
-
         return [
-            'name' => $rule . '|string|min:2',
-            'year' => $rule . '|numeric',
-            'price' => $rule . '|numeric',
-            'color' => $rule . '|string|min:2',
-            'stock' => $rule . '|numeric',
+            'name' => 'required|string|min:2',
+            'year' => 'required|numeric',
+            'price' => 'required|numeric',
+            'color' => 'required|string|min:2',
+            'stock' => 'required|numeric',
             'car_id' => [
-                $requestMethod ? 'required_without:motorcycle_id' : '',
+                'required_without:motorcycle_id',
                 'prohibited_unless:motorcycle_id,null',
                 'string',
                 'nullable',
                 'exists:cars,_id',
             ],
             'motorcycle_id' => [
-                $requestMethod ? 'required_without:car_id' : '',
+                'required_without:car_id',
                 'prohibited_unless:car_id,null',
                 'string',
                 'nullable',
