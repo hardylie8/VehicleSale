@@ -1,0 +1,852 @@
+{
+	"info": {
+		"_postman_id": "17812af9-5a11-4a3a-ad38-963c34639ba9",
+		"name": "kendaraan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16587380"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@admin.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@admin.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDE4MzEzLCJleHAiOjE2ODQ0MjE5MTMsIm5iZiI6MTY4NDQxODMxMywianRpIjoibGlXa2dhdGZLS2hOelpKWSIsInN1YiI6IjY0NjYyZjAwNmVjYmViNDM2NTA2MzIwMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.PmShDZWH2kOBrp-VZtUDMB60OFE0O5Kb-Ie9tK75AKs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin1@admin.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Password123*",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "avanza",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:8000/api/car",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/car/64663c1de8e189f6f7029e6d",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"car",
+								"64663c1de8e189f6f7029e6d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"engine\":\"V8\",\r\n    \"capacity\":190,\r\n    \"type\":\"automatic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/car/64663c1de8e189f6f7029e6d",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"car",
+								"64663c1de8e189f6f7029e6d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"engine\":\"V8\",\r\n    \"capacity\":190,\r\n    \"type\":\"automatic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/car",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "engine",
+									"value": "V8",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "190",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "automatic",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/car/64663d862cd9496c7c0bbd73",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"car",
+								"64663d862cd9496c7c0bbd73"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Motorcycle",
+			"item": [
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:8000/api/motorcycle",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"motorcycle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/motorcycle/64663c1de8e189f6f7029e72",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"motorcycle",
+								"64663c1de8e189f6f7029e72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"engine\":\"V8\",\r\n    \"suspension_type\":\"dual\",\r\n    \"transmission_type\":\"automatic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/motorcycle/64663c1de8e189f6f7029e72",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"motorcycle",
+								"64663c1de8e189f6f7029e72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"engine\": \"V8\",\r\n    \"suspension_type\": \"dual\",\r\n    \"transmission_type\": \"automatic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/motorcycle",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"motorcycle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "engine",
+									"value": "V8",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "190",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "automatic",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/motorcycle/64663e092cd9496c7c0bbd74",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"motorcycle",
+								"64663e092cd9496c7c0bbd74"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle",
+			"item": [
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:8000/api/vehicle",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/vehicle/64663c1de8e189f6f7029e7c",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vehicle",
+								"64663c1de8e189f6f7029e7c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"avanza\",\r\n    \"year\": 2013,\r\n    \"price\": 200000000,\r\n    \"color\": \"black\",\r\n    \"stock\": 9019,\r\n    \"car_id\": \"64663c1de8e189f6f7029e6d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/vehicle/64663c1de8e189f6f7029e7c",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vehicle",
+								"64663c1de8e189f6f7029e7c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"year\": 1900,\r\n    \"name\": \"avanza\",\r\n    \"price\": 200000000,\r\n    \"stock\": 1920,\r\n    \"color\": \"black\",\r\n    \"car_id\": \"64663c1de8e189f6f7029e6d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/vehicle",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "engine",
+									"value": "V8",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "190",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "automatic",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/vehicle/64663e9c2cd9496c7c0bbd75",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vehicle",
+								"64663e9c2cd9496c7c0bbd75"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sale",
+			"item": [
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:8000/api/sale",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"sale"
+							],
+							"query": [
+								{
+									"key": "vehicle_id",
+									"value": "64663c1de8e189f6f7029e82",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/sale/64663c1de8e189f6f7029e8b",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"sale",
+								"64663c1de8e189f6f7029e8b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg0NDIxODI0LCJleHAiOjE2ODQ0MjU0MjQsIm5iZiI6MTY4NDQyMTgyNCwianRpIjoiZnBndGtYUnVRV3ozWlEzOSIsInN1YiI6IjY0NjYzYzNiMWI0ZDgzYWI2ZTBlY2JjMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.d58Q-waphiLA_g_PCqdgSDj5k0VmocntpAAT4vUuj98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vehicle_id\": \"64663c1de8e189f6f7029e7d\",\r\n    \"total\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/sale",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"sale"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

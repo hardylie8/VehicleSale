@@ -25,9 +25,9 @@ class SaleSaveRequest extends FormRequest
     public function rules()
     {
         return [
-            'total' => 'required|numeric|min:1|lte:stock',
+            'total' => 'required|integer|min:1|lte:stock',
             'vehicle_id' => 'required|string|exists:vehicles,_id',
-            'updatedStock' => 'required|numeric|min:0',
+            'updatedStock' => 'required|integer|min:0',
         ];
     }
 

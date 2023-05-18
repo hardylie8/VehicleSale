@@ -34,6 +34,7 @@ class AuthController extends Controller
             return response()->json([
                 'success' => 'error',
                 'message' => 'Unauthorized/wrong password or id',
+                'data' => [],
             ], 401);
         }
 

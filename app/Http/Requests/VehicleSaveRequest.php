@@ -25,10 +25,10 @@ class VehicleSaveRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:2',
-            'year' => 'required|numeric',
-            'price' => 'required|numeric',
+            'year' => 'required|integer',
+            'price' => 'required|integer',
             'color' => 'required|string|min:2',
-            'stock' => 'required|numeric',
+            'stock' => 'required|integer',
             'car_id' => [
                 'required_without:motorcycle_id',
                 'prohibited_unless:motorcycle_id,null',

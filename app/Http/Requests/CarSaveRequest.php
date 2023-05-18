@@ -25,7 +25,7 @@ class CarSaveRequest extends FormRequest
     {
         return [
             'engine' => 'required|string',
-            'capacity' => 'required|numeric',
+            'capacity' => 'required|integer',
             'type' => 'required|string',
         ];
     }
