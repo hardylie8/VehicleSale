@@ -41,7 +41,8 @@ class MotorcycleService
      */
     public function getAll()
     {
-        return $this->motorcycleRepository->getAll()->jsonPaginate();
+        $motorcycle = $this->motorcycleRepository->getAll();
+        return !$motorcycle->isEmpty() ? $motorcycle->toQuery()->jsonPaginate() : $motorcycle;
     }
 
     /**

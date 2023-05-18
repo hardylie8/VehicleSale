@@ -41,7 +41,10 @@ class VehicleService
      */
     public function getAll()
     {
-        return $this->vehicleRepository->getAll()->with(['car', 'motorcycle'])->jsonPaginate();
+        $vehicle = $this->vehicleRepository->getAll();
+        return !$vehicle->isEmpty()
+        ? $vehicle->toQuery()->with(['car', 'motorcycle'])->jsonPaginate()
+        : $vehicle;
     }
 
     /**

@@ -23,13 +23,15 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::controller(AuthController::class)->group(function () {
-    Route::post('login', 'login');
+    Route::post('login', 'login')->name('login');
     Route::post('register', 'register');
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
 });
 
-Route::apiResource('/vehicle', VehicleController::class);
-Route::apiResource('/sale', SaleController::class)->only(['index', 'show', 'store']);
-Route::apiResource('/car', CarController::class);
-Route::apiResource('/motorcycle', MotorcycleController::class);
+Route::middleware('auth:api')->group(function () {
+    Route::apiResource('/vehicle', VehicleController::class);
+    Route::apiResource('/sale', SaleController::class)->only(['index', 'show', 'store']);
+    Route::apiResource('/car', CarController::class);
+    Route::apiResource('/motorcycle', MotorcycleController::class);
+});

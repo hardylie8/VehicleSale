@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Vehicle;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SaleFactory extends Factory
@@ -15,7 +16,7 @@ class SaleFactory extends Factory
     {
         return [
             'total' => $this->faker->numberBetween(1, 100),
-            'vehicle_id' => $this->faker->numberBetween(1, 5),
+            'vehicle_id' => Vehicle::factory(),
         ];
     }
 }

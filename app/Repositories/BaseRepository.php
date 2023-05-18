@@ -19,7 +19,7 @@ abstract class BaseRepository
      */
     public function getAll()
     {
-        return $this->model->get()->toQuery();
+        return $this->model->all();
     }
 
     /**

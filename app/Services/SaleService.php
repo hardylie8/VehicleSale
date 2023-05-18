@@ -43,11 +43,15 @@ class SaleService
      */
     public function getAll($request)
     {
-        $sale = $this->saleRepository->getAll()->with('vehicle');
-        if ($request->has('vehicle_id')) {
-            $sale->where('vehicle_id', $request->input('vehicle_id'));
+        $sale = $this->saleRepository->getAll();
+        if (!$sale->isEmpty()) {
+            $sale = $sale->toQuery()->with('vehicle');
+            if ($request->has('vehicle_id')) {
+                $sale = $sale->where('vehicle_id', $request->input('vehicle_id'));
+            }
+            return $sale->jsonPaginate();
         }
-        return $sale->jsonPaginate();
+        return $sale;
     }
 
     /**

@@ -27,6 +27,7 @@ class SaleSaveRequest extends FormRequest
         return [
             'total' => 'required|numeric|min:1|lte:stock',
             'vehicle_id' => 'required|string|exists:vehicles,_id',
+            'updatedStock' => 'required|numeric|min:0',
         ];
     }
 
@@ -41,6 +42,7 @@ class SaleSaveRequest extends FormRequest
         $vehicle = Vehicle::find($this->vehicle_id);
         $this->merge([
             'stock' => $vehicle?->stock,
+            'updatedStock' => $vehicle?->stock - $this->total,
         ]);
     }
 }

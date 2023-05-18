@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Car;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class VehicleFactory extends Factory
@@ -18,9 +19,9 @@ class VehicleFactory extends Factory
             'year' => $this->faker->numberBetween(1900, 2023),
             'price' => $this->faker->numberBetween(1000000, 1000000000),
             'color' => $this->faker->colorName(), // password
-            'stock' => $this->faker->randomNumber(),
-            'car_id' => 1,
-            'motorcycle_id' => 1,
+            'stock' => $this->faker->numberBetween(100, 1000),
+            'car_id' => Car::factory(),
+            'motorcycle_id' => null,
 
         ];
     }

@@ -41,7 +41,8 @@ class CarService
      */
     public function getAll()
     {
-        return $this->carRepository->getAll()->jsonPaginate();
+        $car = $this->carRepository->getAll();
+        return !$car->isEmpty() ? $car->toQuery()->jsonPaginate() : $car;
     }
 
     /**

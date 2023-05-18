@@ -17,4 +17,14 @@ class VehicleRepository extends BaseRepository
         $this->model = $vehicle;
     }
 
+    /**
+     * Update Vehicle stock
+     *
+     * @param $data
+     * @return Vehicle
+     */
+    public function decreaseStock($id, $stock)
+    {
+        $this->getById($id)->decrement('stock', $stock);
+    }
 }
