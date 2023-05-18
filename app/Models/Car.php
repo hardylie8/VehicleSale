@@ -21,12 +21,4 @@ class Car extends Model
         'type',
     ];
 
-    /**
-     * Get vehicle details.
-     * @return hasOne
-     */
-    public function vehicle()
-    {
-        return $this->belongsToMany(Vehicle::class);
-    }
 }

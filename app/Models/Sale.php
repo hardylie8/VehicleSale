@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 
@@ -19,5 +20,21 @@ class Sale extends Model
         'total',
         'vehicle_id',
     ];
+
+    /**
+     * return relationship
+     *
+     * @var array<int, string>
+     */
+    protected $with = ['vehicle'];
+
+    /**
+     * Get vehicle details.
+     * @return belongsTo
+     */
+    public function vehicle()
+    {
+        return $this->belongsTo(Vehicle::class);
+    }
 
 }

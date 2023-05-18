@@ -20,8 +20,8 @@ class CreateVehicles extends Migration
             $table->integer('price');
             $table->string('color');
             $table->string('stock');
-            $table->foreignId('car_id')->constrained('cars')->cascadeOnDelete()->cascadeOnUpdate();;
-            $table->foreignId('motorcycle_id')->constrained('motorcycles')->cascadeOnDelete()->cascadeOnUpdate();;
+            $table->foreignId('car_id')->constrained('cars')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('motorcycle_id')->constrained('motorcycles')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

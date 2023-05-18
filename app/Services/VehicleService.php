@@ -31,8 +31,7 @@ class VehicleService
      */
     public function deleteById($id)
     {
-        $result = $this->vehicleRepository->delete($id);
-        return $result;
+        return $this->vehicleRepository->delete($id);
     }
 
     /**
@@ -42,7 +41,7 @@ class VehicleService
      */
     public function getAll()
     {
-        return $this->vehicleRepository->getAll();
+        return $this->vehicleRepository->getAll()->jsonPaginate();
     }
 
     /**
@@ -65,9 +64,7 @@ class VehicleService
      */
     public function updateVehicle($data, $id)
     {
-        $result = $this->vehicleRepository->update($data, $id);
-        return $result;
-
+        return $this->vehicleRepository->update($data, $id);
     }
 
     /**
@@ -79,8 +76,7 @@ class VehicleService
      */
     public function saveVehicleData($data)
     {
-        $result = $this->vehicleRepository->save($data);
-        return $result;
+        return $this->vehicleRepository->save($data);
     }
 
 }

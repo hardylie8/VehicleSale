@@ -19,7 +19,7 @@ class VehicleController extends Controller
     /**
      * VehicleController Constructor
      *
-     * @param v $postService
+     * @param VehicleService $vehicleService
      *
      */
     public function __construct(VehicleService $vehicleService)

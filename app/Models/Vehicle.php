@@ -26,6 +26,13 @@ class Vehicle extends Model
     ];
 
     /**
+     * return relationship
+     *
+     * @var array<int, string>
+     */
+    protected $with = ['car', 'motorcycle'];
+
+    /**
      * Get cars details.
      * @return belongsTo
      */
