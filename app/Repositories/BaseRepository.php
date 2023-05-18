@@ -19,7 +19,7 @@ abstract class BaseRepository
      */
     public function getAll()
     {
-        return $this->model->all()->toQuery();
+        return $this->model->get()->toQuery();
     }
 
     /**
@@ -30,7 +30,12 @@ abstract class BaseRepository
      */
     public function getById($id)
     {
-        return $this->model->findOrFail($id);
+        $relationship = [];
+        if (method_exists($this->model, 'getRelationship')) {
+            $relationship = $this->model->getRelationship();
+        }
+
+        return $this->model->with($relationship)->findOrFail($id);
     }
 
     /**

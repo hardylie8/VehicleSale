@@ -43,7 +43,7 @@ class SaleService
      */
     public function getAll($request)
     {
-        $sale = $this->saleRepository->getAll();
+        $sale = $this->saleRepository->getAll()->with('vehicle');
         if ($request->has('vehicle_id')) {
             $sale->where('vehicle_id', $request->input('vehicle_id'));
         }

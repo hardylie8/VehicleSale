@@ -22,11 +22,14 @@ class Sale extends Model
     ];
 
     /**
-     * return relationship
+     * return all available relationship
      *
-     * @var array<int, string>
+     * @return array
      */
-    protected $with = ['vehicle'];
+    public function getRelationship()
+    {
+        return ['vehicle'];
+    }
 
     /**
      * Get vehicle details.

@@ -41,7 +41,7 @@ class VehicleService
      */
     public function getAll()
     {
-        return $this->vehicleRepository->getAll()->jsonPaginate();
+        return $this->vehicleRepository->getAll()->with(['car', 'motorcycle'])->jsonPaginate();
     }
 
     /**
